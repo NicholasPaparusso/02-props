@@ -1,43 +1,50 @@
-import logo from './logo.svg';
 import './assets/style.css';
 import Product from './components/Product';
-
+import DatePurchase from './components/DatePurchase';
 function App() {
 
-  const products = [
+  const expenses = [
     {
-      'title' : 'Product-1',
-      'price' : '33,20',
-      'description' : 'Nice Product-1'
+      id: 'e1',
+      title: 'Toilet Paper',
+      amount: 94.12,
+      date: new Date(2020, 7, 14),
+    },
+    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: 'e3',
+      title: 'Car Insurance',
+      amount: 294.67,
+      date: new Date(2021, 2, 28),
     },
     {
-      'title' : 'Product-2',
-      'price' : '33,20',
-      'description' : 'Awesome Product-2'
-    },
-    {
-      'title' : 'Product-1',
-      'price' : '33,20',
-      'description' : 'Gummy duck Product-3'
+      id: 'e4',
+      title: 'New Desk (Wooden)',
+      amount: 450,
+      date: new Date(2021, 5, 12),
     },
   ];
 
   return (
     <div className="App">
-        <div>
-          {products.map((item,index) => {
-            return (
-              <Product
-              title={item.title}
-              price={item.price}
-              description={item.description}
-              >
 
-              </Product>
+          {expenses.map((item) => {
+            return (
+
+              <div>  
+
+                  <Product
+                  date={item.date}
+                  title={item.title}
+                  amount={item.amount}
+                  />
+
+              </div>
+
             );
           } )}
 
-        </div>
+
     </div>
   );
 }
